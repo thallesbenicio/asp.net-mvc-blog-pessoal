@@ -9,8 +9,12 @@ namespace BlogPessoal.Web.Models
     public class CategoriaDeArtigo
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Informe o Nome")]
+        [Display(Name = "Nome da categoria")]
         public string Nome { get; set; }
+        [Display(Name = "Descrição")]
+        [DataType(DataType.MultilineText, ErrorMessage = "Descrição errada")]
+        [StringLength(300, MinimumLength = 10)]
         public string Descricao { get; set; }
 
     }
